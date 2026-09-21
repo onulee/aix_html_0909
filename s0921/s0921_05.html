@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>학생성적프로그램</title>
+    <style>
+        *{margin:0; padding:0;}
+        div{width:1200px; margin:0 auto; text-align: center;}
+        h2{margin:20px 0 10px 0;}
+        table,th,td{border:1px solid black; border-collapse: collapse;}
+        table{width:1200px;}
+        th,td{height:40px;}
+        th{background: #efefef;}
+        button{width:80px; height:35px;}
+    </style>
+    <script>
+        // 삭제,추가 제이쿼리 구문을 완성하시오.
+        $(function(){
+            $(document).on("click",".deleteBtn",function(){
+                console.log("tr id : ",$(this).parent().parent().attr("id"));
+                var id = $(this).parent().parent().attr("id");
+                
+                if(confirm("성적을 삭제하시겠습니까?")){
+                    $("#"+id).remove();
+                }
+            });//deleteBtn
+        });//제이쿼리
+    </script>
+</head>
+<body>
+    <div>
+        <h2>학생성적입력</h2>
+        <input type="text" name="no" id="no" placeholder="번호입력"><br>
+        <input type="text" name="name" id="name" placeholder="이름입력"><br>
+        <input type="text" name="kor" id="kor" placeholder="국어입력"><br>
+        <input type="text" name="eng" id="eng" placeholder="영어입력"><br>
+        <input type="text" name="math" id="math" placeholder="수학입력"><br>
+        <br>
+        <button type="button" id="saveBtn">저장</button>
+        <button type="button" id="conBtn">가져오기</button>
+
+        <h2>학생성적리스트</h2>
+        <table>
+            <colgroup>
+                <col width="10%">
+                <col width="15%">
+                <col width="10%">
+                <col width="10%">
+                <col width="10%">
+                <col width="10%">
+                <col width="10%">
+                <col width="10%">
+                <col width="15%">
+            </colgroup>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>국어</th>
+                <th>영어</th>
+                <th>수학</th>
+                <th>합계</th>
+                <th>평균</th>
+                <th>등수</th>
+                <th>비고</th>
+            </tr>
+            <tr id="1">
+                <td>1</td>
+                <td>홍길동</td>
+                <td>100</td>
+                <td>100</td>
+                <td>100</td>
+                <td>300</td>
+                <td>100.0</td>
+                <td>0</td>
+                <td>
+                    <button type="button" class="updateBtn">수정</button>
+                    <button type="button" class="deleteBtn">삭제</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
